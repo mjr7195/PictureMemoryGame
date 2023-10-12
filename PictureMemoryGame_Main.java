@@ -14,12 +14,12 @@ public class PictureMemoryGame_Main extends JFrame {
     private String[] imageNames = {"Photo1.JPG","Photo2.JPG", "Photo3.JPG", "Photo4.JPG", "Photo5.jpg", "Photo6.jpg", "Photo7.jpg", "Photo8.jpg", "Photo9.jpg", "Photo10.jpg", "Photo11.jpg", "Photo12.jpg",
                                    "Photo1.JPG","Photo2.JPG", "Photo3.JPG", "Photo4.JPG", "Photo5.jpg", "Photo6.jpg", "Photo7.jpg", "Photo8.jpg", "Photo9.jpg", "Photo10.jpg", "Photo11.jpg", "Photo12.jpg"};
     private int numberOfMatches;
-    private int firstCardIndex;
+    private int firstCardIndex = -1;
     private int secondCardIndex;
 
     public PictureMemoryGame_Main(){
         setTitle("Picture Memory Game");
-        setSize(10000, 10000);
+        setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         imagePaths = new ArrayList<>();
@@ -35,10 +35,10 @@ public class PictureMemoryGame_Main extends JFrame {
         Collections.shuffle(cardImages);
 
         JPanel cardPanel = new JPanel(new GridLayout(12,12));
-        cardButtons = new JButton[144];
+        cardButtons = new JButton[24];
 
         for (int i = 0; i < cardButtons.length; i++) {
-            final int index = 1;
+            final int index = i;
             cardButtons[i] = new JButton();
             cardButtons[i].setIcon(new ImageIcon("CardCoverQuestionMark.png"));
             cardButtons[i].addActionListener(new ActionListener() {
